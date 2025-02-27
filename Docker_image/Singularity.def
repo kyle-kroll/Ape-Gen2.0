@@ -1,0 +1,13 @@
+BootStrap: docker
+From: continuumio/miniconda3
+
+%post
+	. /opt/conda/etc/profile.d/conda.sh
+	conda env create -f environment.yml
+	conda activate apegen
+	apt-get install gfortran
+%files
+	environment.yml /environment.yml
+%labels
+	Author Kyle Kroll
+	Version 1.0
